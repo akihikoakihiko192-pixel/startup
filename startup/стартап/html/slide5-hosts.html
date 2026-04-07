@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЖИЛЬЁ · Наши хозяева</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="/icon/favicon.ico">
+    <link rel="manifest" href="site.webmanifest">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav>
+    <div class="logo">
+        <i class="fas fa-home-heart"></i> ЖИЛЬЁ
+    </div>
+    <div class="nav-links">
+        <a href="/html/index.html">Главная</a>
+        <a href="/html/slide2-how-it-works.html">Как работает</a>
+        <a href="/html/slide3-rooms.html">Комнаты</a>
+        <a href="/html/slide4-map.html">Карта</a>
+        <a href="/html/slide5-hosts.html" class="active">Хозяева</a>
+        <a href="/html/slide6-for-students.html">Жильцам</a>
+        <a href="/html/slide10-testimonials.html">Отзывы</a>
+        <a href="/html/slide11-contact.html">Контакты</a>
+        <a href="/html/slide7-host-cta.html" class="host-nav-btn">Сдать комнату</a>
+
+    </div>
+</nav>
+
+<section class="section">
+    <div class="section-inner">
+        <div class="fade-up active">
+            <span class="section-subtitle">КТО СДАЁТ</span>
+            <h2>Наши хозяева</h2>
+            <p class="section-description">Надёжные хозяева, которые ценят порядок, комфорт и живое общение. Все профили проходят проверку.</p>
+        </div>
+
+        <div class="grid-4" style="margin-top: 2rem;">
+            <div class="host-card fade-up delay-1">
+                <div class="host-avatar-large">
+                 <img src="/images/аяна.jpg" style="width:100px;height:110px;border-radius:50%;object-fit:cover;">
+                </div>
+                <h3>Талантбекова Аяна </h3>
+                <p class="host-age">46 лет,Alamedin</p>
+                <p class="host-quote">«Студентка помогла с уборкой, а я ей — крыша над головой. Обе довольны»</p>
+                <div class="trust-meter">
+                    <div class="trust-fill" style="width: 95%;"></div>
+                </div>
+                <span class="rating">рейтинг 4.98</span>
+            </div>
+            
+            <div class="host-card fade-up delay-2">
+                <div class="host-avatar-large">
+                   <img src="/images/атай.jpg" style="width:100px;height:110px;border-radius:50%;object-fit:cover;">
+                </div>
+                <h3>Султаналиев Атай</h3>
+                <p class="host-age">58 лет,Alatoo-square</p>
+                <p class="host-quote">«Раньше боялся чужих, а теперь как внук живёт. И мне помощь, и ему дёшево»</p>
+                <div class="trust-meter">
+                    <div class="trust-fill" style="width: 92%;"></div>
+                </div>
+                <span class="rating">рейтинг 4.91</span>
+            </div>
+            
+            <div class="host-card fade-up delay-3">
+                <div class="host-avatar-large">
+                    <img src="/images/айканыш.jpg" style="width:100px;height:110px;border-radius:50%;object-fit:cover;">
+                </div>
+                <h3>Кадырова Айканыш</h3>
+                <p class="host-age">37 лет, Novopokrovka</p>
+                <p class="host-quote">«Сдаю комнату уже 3 года. Все студенты хорошие, главное — договориться сразу»</p>
+                <div class="trust-meter">
+                    <div class="trust-fill" style="width: 98%;"></div>
+                </div>
+                <span class="rating">рейтинг 4.99</span>
+            </div>
+            
+            <div class="host-card fade-up delay-4">
+                <div class="host-avatar-large">
+                    <img src="/images/данат.jpg" style="width:100px;height:110px;border-radius:50%;object-fit:cover;">
+                 </div>
+                <h3>Орозалиев Данат</h3>
+                <p class="host-age">39 лет, TSUM</p>
+                <p class="host-quote">«Одному скучно, а с жильцом и поговорить есть с кем. И пенсия побольше»</p>
+                <div class="trust-meter">
+                    <div class="trust-fill" style="width: 90%;"></div>
+                </div>
+                <span class="rating">рейтинг 4.87</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div style="text-align: center; padding: 2rem;">
+    <a href="#" class="btn-outline btn-small" onclick="window.scrollTo({top:0,behavior:'smooth'});returnfalse;">
+        <i class="fas fa-arrow-up"></i> Наверх
+    </a>
+</div>
+
+<script src="/js/script.js"></script>
+
+<!-- Хомячок -->
+<div class="hamster-container" id="hamster">
+  <img src="/images/hhh.png" alt="Хомячок">
+</div>
+
+<!-- Чат -->
+<div class="chat-box" id="chatBox">
+  <div class="chat-header">
+    HOMiGO 💕
+    <span id="closeChat" style="cursor:pointer;">✖</span>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <p>Привет! Я помогу тебе найти комнату 😊</p>
+  </div>
+  <div class="chat-footer">
+    <input type="text" id="userInput" placeholder="Напишите сообщение...">
+    <button id="sendBtn">➤</button>
+  </div>
+</div>
+<script>
+const hamster = document.getElementById("hamster");
+const chatBox = document.getElementById("chatBox");
+const closeChat = document.getElementById("closeChat");
+const chatBody = document.getElementById("chatBody");
+const sendBtn = document.getElementById("sendBtn");
+
+hamster.addEventListener("click", () => {
+  chatBox.style.display = "flex";
+  hamster.classList.add("active");
+});
+
+closeChat.addEventListener("click", () => {
+  chatBox.style.display = "none";
+  hamster.classList.remove("active");
+});
+
+sendBtn.addEventListener("click", sendMessage);
+
+function sendMessage() {
+  const input = document.getElementById("userInput");
+  const message = input.value;
+
+  if (message.trim() !== "") {
+    chatBody.innerHTML += "<p><strong>Вы:</strong> " + message + "</p>";
+
+    setTimeout(() => {
+      chatBody.innerHTML += "<p><strong>HOMiGO:</strong> Я пока учусь отвечать 😭 </p>";
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }, 500);
+
+    input.value = "";
+  }
+}
+</script>
+</body>
+</html>

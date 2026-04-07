@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЖИЛЬЁ · Контакты</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="/icon/favicon.ico">
+    <link rel="manifest" href="site.webmanifest">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav>
+    <div class="logo">
+        <i class="fas fa-home-heart"></i> ЖИЛЬЁ
+    </div>
+    <div class="nav-links">
+        <a href="/html/index.html">Главная</a>
+        <a href="/html/slide2-how-it-works.html">Как работает</a>
+        <a href="/html/slide3-rooms.html">Комнаты</a>
+        <a href="/html/slide4-map.html">Карта</a>
+        <a href="/html/slide5-hosts.html">Хозяева</a>
+        <a href="/html/slide6-for-students.html">Жильцам</a> 
+        <a href="/html/slide10-testimonials.html">Отзывы</a>
+        <a href="/html/slide11-contact.html" >Контакты</a>
+        <a href="/html/slide7-host-cta.html" class="host-nav-btn">Сдать комнату</a>
+
+        
+    </div>
+</nav>
+
+<section class="section">
+    <div class="section-inner">
+        <div class="grid-2" style="align-items: center;">
+            <div class="fade-up">
+                <span class="section-subtitle">СВЯЗАТЬСЯ</span>
+                <h2>Остались вопросы?</h2>
+                <p class="contact-description">Пишите, мы всегда на связи. Поможем с договором, подбором, переездом.</p>
+                
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <span class="contact-label">Email</span>
+                            <span class="contact-value">hello@zhilyo.ru</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <span class="contact-label">Телефон</span>
+                            <span class="contact-value">+7 (495) 123-45-67</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-vk"></i></a>
+                </div>
+            </div>
+            
+            <div class="card contact-form fade-up delay-2">
+                <h3>Напишите нам</h3>
+                <form>
+                    <div class="form-group">
+                        <input type="text" placeholder="Имя" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Сообщение" rows="3" class="form-textarea"></textarea>
+                    </div>
+                    <button class="btn" style="width: 100%;">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ФУТЕР (общий для всех страниц) -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <div class="footer-logo">
+                <i class="fas fa-home-heart"></i> ЖИЛЬЁ
+            </div>
+            <p>Комнаты у пожилых людей для студентов. Дешевле, чем у риелторов. Добрее, чем общежитие.</p>
+            <p class="copyright">© 2026 Жильё. Все права защищены.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Студентам</h4>
+            <ul>
+                <li><a href="/html/slide3-rooms.html">Найти комнату</a></li>
+                <li><a href="/html/slide2-how-it-works.html">Как это работает</a></li><li><a href="/html/slide10-testimonials.html">Отзывы</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Пенсионерам</h4>
+            <ul>
+                <li><a href="/html/slide7-host-cta.html">Сдать комнату</a></li>
+                <li><a href="#">Безопасность</a></li>
+                <li><a href="/html/slide10-testimonials.html">Истории</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>О проекте</h4>
+            <ul>
+                <li><a href="#">Команда</a></li>
+                <li><a href="slide9-business-plan.html">Бизнес-план</a></li>
+                <li><a href="/html/slide11-contact.html">Контакты</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<script src="/js/script.js"></script>
+<!-- Хомячок -->
+<div class="hamster-container" id="hamster">
+  <img src="/images/hhh.png" alt="Хомячок">
+</div>
+
+<!-- Чат -->
+<div class="chat-box" id="chatBox">
+  <div class="chat-header">
+    HOMiGO 💕
+    <span id="closeChat" style="cursor:pointer;">✖</span>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <p>Привет! Я помогу тебе найти комнату 😊</p>
+  </div>
+  <div class="chat-footer">
+    <input type="text" id="userInput" placeholder="Напишите сообщение...">
+    <button id="sendBtn">➤</button>
+  </div>
+</div>
+<script>
+const hamster = document.getElementById("hamster");
+const chatBox = document.getElementById("chatBox");
+const closeChat = document.getElementById("closeChat");
+const chatBody = document.getElementById("chatBody");
+const sendBtn = document.getElementById("sendBtn");
+
+hamster.addEventListener("click", () => {
+  chatBox.style.display = "flex";
+  hamster.classList.add("active");
+});
+
+closeChat.addEventListener("click", () => {
+  chatBox.style.display = "none";
+  hamster.classList.remove("active");
+});
+
+sendBtn.addEventListener("click", sendMessage);
+
+function sendMessage() {
+  const input = document.getElementById("userInput");
+  const message = input.value;
+
+  if (message.trim() !== "") {
+    chatBody.innerHTML += "<p><strong>Вы:</strong> " + message + "</p>";
+
+    setTimeout(() => {
+      chatBody.innerHTML += "<p><strong>HOMiGO:</strong> Я пока учусь отвечать 😭 </p>";
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }, 500);
+
+    input.value = "";
+  }
+}
+</script>
+</body>
+</html>

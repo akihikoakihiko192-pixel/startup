@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЖИЛЬЁ · Сдать комнату</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="/icon/favicon.ico">
+    <link rel="manifest" href="site.webmanifest">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav>
+    <div class="logo">
+        <i class="fas fa-home-heart"></i> ЖИЛЬЁ
+    </div>
+    <div class="nav-links">
+        <a href="/html/index.html">Главная</a>
+        <a href="/html/slide2-how-it-works.html">Как работает</a>
+        <a href="/html/slide3-rooms.html">Комнаты</a>
+        <a href="/html/slide4-map.html">Карта</a>
+        <a href="/html/slide5-hosts.html">Хозяева</a>
+        <a href="/html/slide6-for-students.html">Жильцам</a>
+        <a href="/html/slide10-testimonials.html">Отзывы</a>
+        <a href="/html/slide11-contact.html">Контакты</a>
+        <a href="/html/slide7-host-cta.html" class="active host-nav-btn">Сдать комнату</a>
+
+
+    </div>
+</nav>
+
+<section class="section">
+    <div class="section-inner">
+        <div class="host-cta fade-up active">
+            <div class="host-cta-content">
+                <div>
+                    <span class="badge-white">хозяевам</span>
+                    <h2 style="color: white; font-size: 2.8rem; margin: 1rem 0;">Сдайте пустую комнату</h2>
+                    <p style="font-size: 1.2rem; max-width: 600px; opacity: 0.9;">Дополнительный доход от 12 000 сом в месяц. Помощь по дому. Живой человек рядом.</p>
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Бесплатное размещение</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Проверка жильцов</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Юридическая поддержка</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="income-card">
+                    <span class="income-amount">12-20 тыс сом</span>
+                    <p>к пенсии ежемесячно</p>
+                    <a   button onclick="rentRoom(),href= classbtn" style="background: var(--terracotta); color: white; width: 100%; margin-top: 2rem;">Сдать комнату</a>
+                    
+
+<script>
+function rentRoom() {
+
+    const user = localStorage.getItem("user");
+
+    if (!user) {
+        window.location.href = "register.html";
+    } else {
+        window.location.href = "rent-form.html";
+    }
+
+}
+</script>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div style="text-align: center; padding: 2rem;">
+    <a href="#" class="btn-outline btn-small" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+        <i class="fas fa-arrow-up"></i> Наверх
+    </a>
+</div>
+
+<script src="/js/script.js"></script>
+
+<!-- Хомячок -->
+<div class="hamster-container" id="hamster">
+  <img src="/images/hhh.png" alt="Хомячок">
+</div>
+
+<!-- Чат -->
+<div class="chat-box" id="chatBox">
+  <div class="chat-header">
+    HOMiGO 💕
+    <span id="closeChat" style="cursor:pointer;">✖</span>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <p>Привет! Я помогу тебе найти комнату 😊</p>
+  </div>
+  <div class="chat-footer">
+    <input type="text" id="userInput" placeholder="Напишите сообщение...">
+    <button id="sendBtn">➤</button>
+  </div>
+</div>
+<script>
+const hamster = document.getElementById("hamster");
+const chatBox = document.getElementById("chatBox");
+const closeChat = document.getElementById("closeChat");
+const chatBody = document.getElementById("chatBody");
+const sendBtn = document.getElementById("sendBtn");
+
+hamster.addEventListener("click", () => {
+  chatBox.style.display = "flex";
+  hamster.classList.add("active");
+});
+
+closeChat.addEventListener("click", () => {
+  chatBox.style.display = "none";hamster.classList.remove("active");
+});
+
+sendBtn.addEventListener("click", sendMessage);
+
+function sendMessage() {
+  const input = document.getElementById("userInput");
+  const message = input.value;
+
+  if (message.trim() !== "") {
+    chatBody.innerHTML += "<p><strong>Вы:</strong> " + message + "</p>";
+
+    setTimeout(() => {
+      chatBody.innerHTML += "<p><strong>HOMiGO:</strong> Я пока учусь отвечать 😭 </p>";
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }, 500);
+
+    input.value = "";
+  }
+}
+</script>
+</body>
+</html>

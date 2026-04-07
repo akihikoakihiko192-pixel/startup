@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЖИЛЬЁ · Студентам</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="/icon/favicon.ico">
+    <link rel="manifest" href="site.webmanifest">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav>
+    <div class="logo">
+        <i class="fas fa-home-heart"></i> ЖИЛЬЁ
+    </div>
+    <div class="nav-links">
+        <a href="/html/index.html">Главная</a>
+        <a href="/html/slide2-how-it-works.html">Как работает</a>
+        <a href="/html/slide3-rooms.html">Комнаты</a>
+        <a href="/html/slide4-map.html">Карта</a>
+        <a href="/html/slide5-hosts.html">Хозяева</a>
+        <a href="/html/slide6-for-students.html" class="active">Жильцам</a>
+        <a href="/html/slide10-testimonials.html">Отзывы</a>
+        <a href="/html/slide11-contact.html">Контакты</a>
+        <a href="/html/slide7-host-cta.html" class="host-nav-btn">Сдать комнату</a>
+
+    </div>
+</nav>
+
+<section class="section" style="background: var(--charcoal-warm); color: white; border-radius: 48px; margin: 2rem 5%; width: auto; min-height: auto;">
+    <div class="section-inner" style="text-align: center;">
+        <div class="fade-up active">
+            <span style="color: var(--sand); font-weight: 700; letter-spacing: 0.15em;">СТУДЕНТАМ</span>
+            <h2 style="color: white; font-size: 3.2rem; margin-bottom: 1rem;">Экономьте на аренде</h2>
+            <p style="font-size: 1.3rem; max-width: 700px; margin: 0 auto; opacity: 0.9;">Не переплачивайте агентам. Живите дёшево и помогайте тем, кому нужна поддержка.</p>
+        </div>
+        
+        <div class="grid-3" style="margin-top: 3rem; color: var(--charcoal-warm);">
+            <div class="card fade-up delay-1" style="background: white;">
+                <i class="fas fa-wallet" style="font-size: 2.5rem; color: var(--terracotta); margin-bottom: 1rem;"></i>
+                <h3>Без комиссии</h3>
+                <p>Платите только за жильё. Никаких скрытых платежей.</p>
+            </div>
+            <div class="card fade-up delay-2" style="background: white;">
+                <i class="fas fa-shield" style="font-size: 2.5rem; color: var(--terracotta); margin-bottom: 1rem;"></i>
+                <h3>Безопасная сделка</h3>
+                <p>Договор, проверка хозяина, поддержка в конфликтах.</p>
+            </div>
+            <div class="card fade-up delay-3" style="background: white;">
+                <i class="fas fa-hand-holding-heart" style="font-size: 2.5rem; color: var(--terracotta); margin-bottom: 1rem;"></i>
+                <h3>Доброе дело</h3>
+                <p>Вы помогаете пожилым людям чувствовать себя нужными.</p>
+            </div>
+        </div>
+        
+        <div style="margin-top: 3rem;" class="fade-up delay-4">
+            <a href="/html/slide3-rooms.html" class="btn btn-white" style="margin-right: 1rem;">Найти комнату</a>
+            <a href="/html/slide7-host-cta.html" class="btn btn-outline" style="border-color: white; color: white;">Сдать комнату</a>
+        </div>
+    </div>
+</section>
+
+<div style="text-align: center; padding: 2rem;">
+    <a href="#" class="btn-outline btn-small" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+        <i class="fas fa-arrow-up"></i> Наверх
+    </a>
+</div>
+
+<script src="/js/script.js"></script>
+
+<!-- Хомячок -->
+<div class="hamster-container" id="hamster">
+  <img src="/images/hhh.png" alt="Хомячок">
+</div>
+
+<!-- Чат -->
+<div class="chat-box" id="chatBox">
+  <div class="chat-header">
+    HOMiGO 💕
+    <span id="closeChat" style="cursor:pointer;">✖</span>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <p>Привет! Я помогу тебе найти комнату 😊</p>
+  </div>
+  <div class="chat-footer">
+    <input type="text" id="userInput" placeholder="Напишите сообщение...">
+    <button id="sendBtn">➤</button>
+  </div>
+</div>
+<script>
+const hamster = document.getElementById("hamster");
+const chatBox = document.getElementById("chatBox");
+const closeChat = document.getElementById("closeChat");
+const chatBody = document.getElementById("chatBody");
+const sendBtn =document.getElementById("sendBtn");
+
+hamster.addEventListener("click", () => {
+  chatBox.style.display = "flex";
+  hamster.classList.add("active");
+});
+
+closeChat.addEventListener("click", () => {
+  chatBox.style.display = "none";
+  hamster.classList.remove("active");
+});
+
+sendBtn.addEventListener("click", sendMessage);
+
+function sendMessage() {
+  const input = document.getElementById("userInput");
+  const message = input.value;
+
+  if (message.trim() !== "") {
+    chatBody.innerHTML += "<p><strong>Вы:</strong> " + message + "</p>";
+
+    setTimeout(() => {
+      chatBody.innerHTML += "<p><strong>HOMiGO:</strong> Я пока учусь отвечать 😭 </p>";
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }, 500);
+
+    input.value = "";
+  }
+}
+</script>
+</body>
+</html>
