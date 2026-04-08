@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЖИЛЬЁ · Отзывы</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="/icon/favicon.ico">
+    <link rel="manifest" href="site.webmanifest">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav>
+    <div class="logo">
+        <i class="fas fa-home-heart"></i> ЖИЛЬЁ
+    </div>
+    <div class="nav-links">
+        <a href="/html/index.html">Главная</a>
+        <a href="/html/slide2-how-it-works.html">Как работает</a>
+        <a href="/html/slide3-rooms.html">Комнаты</a>
+        <a href="/html/slide4-map.html">Карта</a>
+        <a href="/html/slide5-hosts.html">Хозяева</a>
+        <a href="/html/slide6-for-students.html">Жильцам</a>
+        <a href="/html/slide10-testimonials.html">Отзывы</a>
+        <a href="/html/slide11-contact.html">Контакты</a>
+        <a href="/html/slide7-host-cta.html" class="host-nav-btn">Сдать комнату</a>
+
+    </div>
+</nav>
+
+<section class="section">
+    <div class="section-inner">
+        <div class="fade-up active">
+            <span class="section-subtitle">ИСТОРИИ</span>
+            <h2>Кто уже живёт</h2>
+        </div>
+        
+        <div class="grid-2" style="margin-top: 3rem;">
+            <div class="card testimonial-card fade-up delay-1">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div>
+                        <h3>Алексей, 21 год</h3>
+                        <span class="testimonial-subtitle">МГУ, 3 курс</span>
+                    </div>
+                </div>
+                <p class="testimonial-text">«Снимаю комнату у бабушки на Академической. Плачу 8 500, помогаю с продуктами и компьютером. Раньше отдавал 25 000 за комнату в коммуналке — это небо и земля».</p>
+            </div>
+            
+            <div class="card testimonial-card fade-up delay-2">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div>
+                        <h3>Анна Ивановна, 67</h3>
+                        <span class="testimonial-subtitle">пенсионерка</span>
+                    </div>
+                </div>
+                <p class="testimonial-text">«Боялась сдавать сначала, а теперь не нарадуюсь. Лёша помогает с сумками, котлеты вместе едим. И пенсия побольше, и не одна».</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div style="text-align: center; padding: 2rem;">
+    <a href="#" class="btn-outline btn-small" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+        <i class="fas fa-arrow-up"></i> Наверх
+    </a>
+</div>
+
+<script src="/js/script.js"></script>
+
+<!-- Хомячок -->
+<div class="hamster-container" id="hamster">
+  <img src="/images/hhh.png" alt="Хомячок">
+</div>
+
+<!-- Чат -->
+<div class="chat-box" id="chatBox">
+  <div class="chat-header">
+    HOMiGO 💕
+    <span id="closeChat" style="cursor:pointer;">✖</span>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <p>Привет! Я помогу тебе найти комнату 😊</p>
+  </div>
+  <div class="chat-footer">
+    <input type="text" id="userInput" placeholder="Напишите сообщение...">
+    <button id="sendBtn">➤</button>
+  </div>
+</div>
+<script>
+const hamster = document.getElementById("hamster");
+const chatBox = document.getElementById("chatBox");
+const closeChat = document.getElementById("closeChat");
+const chatBody = document.getElementById("chatBody");
+const sendBtn = document.getElementById("sendBtn");
+
+hamster.addEventListener("click", () => {
+  chatBox.style.display = "flex";
+  hamster.classList.add("active");
+});
+
+closeChat.addEventListener("click", () => {
+  chatBox.style.display = "none";
+  hamster.classList.remove("active");
+});
+
+sendBtn.addEventListener("click", sendMessage);
+
+function sendMessage() {
+  const input = document.getElementById("userInput");
+  const message = input.value;
+
+  if (message.trim() !== "") {chatBody.innerHTML += "<p><strong>Вы:</strong> " + message + "</p>";
+
+    setTimeout(() => {
+      chatBody.innerHTML += "<p><strong>HOMiGO:</strong> Я пока учусь отвечать 😭 </p>";
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }, 500);
+
+    input.value = "";
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЖИЛЬЁ · Комнаты</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="/icon/favicon.ico">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Подключение шрифтов и иконок -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Подключение CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<!-- ========== НАВИГАЦИЯ ========== -->
+<nav>
+    <div class="logo">
+        <i class="fas fa-home-heart"></i> ЖИЛЬЁ
+    </div>
+    <div class="nav-links">
+        <a href="/html/index.html">Главная</a>
+        <a href="/html/slide2-how-it-works.html">Как работает</a>
+        <a href="/html/slide3-rooms.html" class="active">Комнаты</a>
+        <a href="/html/slide4-map.html">Карта</a>
+        <a href="/html/slide5-hosts.html">Хозяева</a>
+        <a href="/html/slide6-for-students.html">Студентам</a>
+        <a href="/html/slide10-testimonials.html" >Отзывы</a>
+        <a href="/html/slide11-contact.html">Контакты</a>
+        <a href="/html/slide7-host-cta.html" class="host-nav-btn">Сдать комнату</a>
+
+    </div>
+</nav>
+
+<!-- ========== СТРАНИЦА С КОМНАТАМИ ========== -->
+<section class="section">
+    <div class="section-inner">
+        
+        <!-- Заголовок -->
+        <div>
+            <span class="section-subtitle">СЕЙЧАС СДАЮТ</span>
+            <h2>Комнаты рядом с вами</h2>
+        </div>
+
+        <!-- ФИЛЬТРЫ: Города и цена -->
+        <div class="filter-bar">
+            
+            <!-- Фильтры городов -->
+            <div class="city-filters">
+                <button class="city-btn active" onclick="window.filterCity('all')">Все комнаты</button>
+                <button class="city-btn" onclick="window.filterCity('Alamedin')">Alamedin</button>
+                <button class="city-btn" onclick="window.filterCity('Alatoo-square')">Alatoo-square</button>
+                <button class="city-btn" onclick="window.filterCity('Novopokrovka')">Novopokrovka</button>
+                <button class="city-btn" onclick="window.filterCity('TSUM')">TSUM</button>
+            </div>
+            
+            <!-- Фильтр по цене -->
+            <div class="price-filter-container">
+                <div class="price-filter-btn" onclick="togglePricePanel()">
+                    <i class="fas fa-sliders-h"></i>
+                    Цена до <span id="selectedPrice">30 000 сом</span>
+                </div>
+                <div class="price-slider-panel" id="pricePanel">
+                    <div style="font-weight: 600; margin-bottom: 1rem;">Максимальная цена</div>
+                    <div class="price-range">
+                        <input type="range" id="priceSlider" min="5000" max="30000" value="30000" step="1000" oninput="updatePrice()">
+                    </div>
+                    <div class="price-values">
+                        <span>5 000 сом</span>
+                        <span id="currentPrice">30 000 сом</span>
+                    </div>
+                    <div style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">
+                        <i class="fas fa-info-circle"></i> Перетащите ползунок
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- СЧЁТЧИК КОМНАТ -->
+        <div class="rooms-count" id="roomCounter">Найдено: 10 комнат</div>
+
+        <!-- СЕТКА КОМНАТ -->
+        <div class="rooms-grid" id="roomsContainer">
+            <!-- Комнаты будут вставлены через JavaScript -->
+        </div>
+    </div>
+</section>
+
+<!-- Кнопка наверх -->
+<div class="back-to-top">
+    <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+        <i class="fas fa-arrow-up"></i> Наверх
+    </a>
+</div>
+
+<!-- ФУТЕР -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <div class="footer-logo">
+                <i class="fas fa-home-heart"></i> ЖИЛЬЁ
+            </div>
+            <p>Комнаты у пожилых людей для студентов. Дешевле, чем у риелторов. Добрее, чем общежитие.</p>
+            <p class="copyright">© 2026 Жильё.  Все права защищены.</p>
+</div>
+        <div class="footer-col">
+            <h4>Студентам</h4>
+            <ul>
+                <li><a href="/html/slide3-rooms.html">Найти комнату</a></li>
+                <li><a href="/html/slide2-how-it-works.html">Как это работает</a></li>
+                <li><a href="/html/slide10-testimonials.html">Отзывы</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Пенсионерам</h4>
+            <ul>
+                <li><a href="/html/slide7-host-cta.html">Сдать комнату</a></li>
+                <li><a href="#">Безопасность</a></li>
+                <li><a href="/html/slide10-testimonials.html">Истории</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>О проекте</h4>
+            <ul>
+                <li><a href="#">Команда</a></li>
+                <li><a href="slide9-business-plan.html">Бизнес-план</a></li>
+                <li><a href="/html/slide11-contact.html">Контакты</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<!-- СКРИПТ ДЛЯ ФИЛЬТРАЦИИ -->
+<script>
+    // Данные о комнатах
+    const roomsData = [
+        // Alamedin
+        {
+            city: 'Alamedin',
+            name: 'Талантбекова Аяна, 46',
+            avatar: '/images/аяна.jpg',
+            metro: 'м. Академическая',
+            size: 14,
+            price: 8500,
+            tags: ['можно с котом'],
+            description: 'Светлая комната, отдельный вход, есть чайник, микроволновка. Рядом парк.',
+            help: '+ помощь по дому'
+        },
+        {
+            city: 'Alamedin',
+            name: 'Нурманбекова Нэля, 55',
+            avatar: '/images/нэля.jpg',
+            metro: 'м. Университет',
+            size: 12,
+            price: 9200,
+            tags: ['Wi-Fi', 'стиральная машина'],
+            description: 'Тихий район, рядом метро и университет. Отдельная комната с хорошим ремонтом.',
+            help: '+ помощь по хозяйству'
+        },
+        {
+            city: 'Alamedin',
+            name: 'Рыспаева Нурайым, 39',
+             avatar: '/images/нурайым.jpg',
+            metro: 'м. Профсоюзная',
+            size: 18,
+            price: 10500,
+            tags: ['лоджия'],
+            description: 'Большая светлая комната, своя лоджия, хорошая транспортная доступность.',
+            help: '+ помощь'
+        },
+        {
+            city: 'Alamedin',
+            name: 'Турганбаев Жанат, 61',
+            avatar: '/images/жанат.jpg',
+            metro: 'м. ВДНХ',
+            size: 15,
+            price: 7800,
+            tags: ['Wi-Fi', 'отдельный вход'],
+            description: 'Уютная комната рядом с парком. Нужна небольшая помощь по дому.',
+            help: '+ помощь'
+        },
+        
+        // Alatoo-square
+        {
+            city: 'Alatoo-square',
+            name: 'Султаналиев Атай, 58',
+            avatar: '/images/атай.jpg',
+            metro: 'м. Василеостровская',
+            size: 12,
+            price: 7000,
+            tags: ['Wi-Fi'],
+            description: 'Комната рядом с метро. Нужна помощь: вынести мусор, сходить в магазин.',
+            help: '+ помощь'
+        },
+        {
+            city: 'Alatoo-square',
+            name: 'Асылбекова Мария, 57',
+            avatar: '/images/мария.jpg',
+            metro: 'м. Площадь Восстания',
+            size: 16,
+            price: 9500,
+            tags: ['Wi-Fi', 'телевизор'],
+            description: 'Центр города, 5 минут до метро. Ищу спокойную девушку-студентку.',
+            help: '+ помощь по дому'
+        },
+        {
+            city: 'Alatoo-square',
+            name: 'Эргешов Бекзат, 43',
+            avatar: '/images/бекзат.jpg',
+            metro: 'м. Петроградская',
+            size: 14,
+            price: 8200,
+            tags: ['можно с котом', 'Wi-Fi'],
+            description: 'Уютная квартира в старом фонде, высокие потолки, рядом парк.',
+            help: '+ помощь'
+        },
+        
+        // Novopokrovka
+        {
+            city: 'Novopokrovka',
+            name: 'Рыскулова Амина, 35',
+            avatar: '/images/амина.jpg',
+            metro: 'м. Горьковская',
+            size: 17,
+            price: 9500,
+            tags: ['лоджия'],
+            description: 'Большая светлая комната, своя лоджия. Рядом университет, парк.',
+            help: '+ помощь'
+        },
+        {
+            city: 'Novopokrovka',
+            name: 'Кадырова Айканыш, 37',
+            avatar: '/images/айканыш.jpg',
+            metro: 'м. Кремлёвская',size: 13,
+            price: 7500,
+            tags: ['Wi-Fi', 'отдельный вход'],
+            description: 'Комната в центре, 10 минут до КФУ. Спокойная, чистоплотная хозяйка.',
+            help: '+ помощь'
+        },
+        {
+            city: 'Novopokrovka',
+            name: 'Азаматов Айдар, 34',
+            avatar: '/images/айдар.jpg',
+            metro: 'м. Суконная слобода',
+            size: 15,
+            price: 8000,
+            tags: ['Wi-Fi'],
+            description: 'Новый дом, хороший ремонт, рядом остановки. Для ответственного студента.',
+            help: '+ помощь'
+        },
+
+        // TSUM
+        {
+            city: 'TSUM',
+            name: 'Орозалиев Данат, 39',
+            avatar: '/images/данат.jpg',
+            metro: 'м. ',
+            size: 13,
+            price: 7500,
+            tags: ['Wi-Fi', 'отдельный вход'],
+            description: 'Комната в центре, 7 минут до КФУ. Спокойная, чистоплотная хозяйка.',
+            help: '+ помощь'
+        },
+    ];
+
+    // Текущие значения фильтров
+    let currentCity = 'all';
+    let maxPrice = 30000;
+
+   // Функция для отображения комнат
+function displayRooms() {
+    var container = document.getElementById('roomsContainer');
+    var counter = document.getElementById('roomCounter');
+    
+    // Фильтруем комнаты
+    var filtered = [];
+    for (var i = 0; i < roomsData.length; i++) {
+        var room = roomsData[i];
+        var cityMatch = (currentCity === 'all' || room.city === currentCity);
+        var priceMatch = (room.price <= maxPrice);
+        
+        if (cityMatch && priceMatch) {
+            filtered.push(room);
+        }
+    }
+
+    // Обновляем счётчик
+    counter.textContent = 'Найдено: ' + filtered.length + ' комнат';
+
+    // Если комнат нет
+    if (filtered.length === 0) {
+        container.innerHTML = '<div class="no-results">' +
+            '<i class="fas fa-search" style="font-size: 3rem; color: var(--sand); margin-bottom: 1rem;"></i>' +
+            '<h3 style="margin-bottom: 0.5rem;">Комнат не найдено</h3>' +
+            '<p style="opacity: 0.7;">Попробуйте изменить фильтры</p>' +
+            '</div>';
+        return;
+    }
+
+    // Создаём HTML для каждой комнаты
+    var html = '';
+    for (var i = 0; i < filtered.length; i++) {
+        var room = filtered[i];
+        
+        // Создаём теги
+        var tagsHtml = '';
+        for (var j = 0; j < room.tags.length; j++) {
+            tagsHtml += '<span class="room-tag">' + room.tags[j] + '</span>';
+        }
+
+        html += '<div class="room-card">' +
+            '<div class="room-card-header">' +
+            '<div class="host-avatar">' +
+            '<img src="' + room.avatar + '" style="width:80px;height:90px;border-radius:50%;object-fit:cover;border:0px solid white;box-shadow:0 4px 10px rgba(0,0,0,0.2);">' +
+            '</div>' +
+            '<div>' +
+            '<h3 style="font-size: 1.3rem; margin-bottom: 0.2rem;">' + room.name + '</h3>' +
+            '<span class="metro-badge"><i class="fas fa-subway"></i> ' + room.metro + '</span>' +
+            '</div>' +
+            '</div>' +
+            '<div class="room-tags">' +
+            '<span class="room-tag">🛏️ ' + room.size + ' м²</span>' +
+            tagsHtml +
+            '</div>' +
+            '<p class="room-description">' + room.description + '</p>' +
+            '<div class="room-footer">' +
+            '<span class="price-tag">' + room.price.toLocaleString() + ' сом</span>' +
+            '<span class="help-badge">' + room.help + '</span>' +
+            '</div>' +
+            '</div>';
+    }
+
+    container.innerHTML = html;
+}
+
+    // Функция для фильтрации по городу (глобальная)
+    window.filterCity = function(city) {
+        currentCity = city;
+        
+        // Обновляем активный класс у кнопок городов
+        document.querySelectorAll('.city-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        event.target.classList.add('active');
+        
+        displayRooms();
+    };
+// Функция для открытия/закрытия панели цены
+    window.togglePricePanel = function() {
+        const panel = document.getElementById('pricePanel');
+        panel.classList.toggle('show');
+    };
+
+    // Функция для обновления цены
+    window.updatePrice = function() {
+        const slider =document.getElementById('priceSlider');
+        const currentPrice = document.getElementById('currentPrice');
+        const selectedPrice = document.getElementById('selectedPrice');
+        
+        const value = parseInt(slider.value);
+        const formatted = value.toLocaleString() + ' сом';
+        
+        currentPrice.textContent = formatted;
+        selectedPrice.textContent = formatted;
+        
+        // Обновляем максимальную цену и фильтруем комнаты
+        maxPrice = value;
+        displayRooms();
+    };
+
+    // Закрытие панели цены при клике вне её
+    document.addEventListener('click', function(event) {
+        const panel = document.getElementById('pricePanel');
+        const btn = document.querySelector('.price-filter-btn');
+        
+        if (!btn.contains(event.target) && !panel.contains(event.target)) {
+            panel.classList.remove('show');
+        }
+    });
+
+    // Загружаем комнаты при открытии страницы
+    window.onload = displayRooms;
+</script>
+
+<!-- Хомячок -->
+<div class="hamster-container" id="hamster">
+  <img src="/images/hhh.png" alt="Хомячок">
+</div>
+
+<!-- Чат -->
+<div class="chat-box" id="chatBox">
+  <div class="chat-header">
+    HOMiGO 💕
+    <span id="closeChat" style="cursor:pointer;">✖</span>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <p>Привет! Я помогу тебе найти комнату 😊</p>
+  </div>
+  <div class="chat-footer">
+    <input type="text" id="userInput" placeholder="Напишите сообщение...">
+    <button id="sendBtn">➤</button>
+  </div>
+</div>
+<script>
+const hamster = document.getElementById("hamster");
+const chatBox = document.getElementById("chatBox");
+const closeChat = document.getElementById("closeChat");
+const chatBody = document.getElementById("chatBody");
+const sendBtn = document.getElementById("sendBtn");
+
+hamster.addEventListener("click", () => {
+  chatBox.style.display = "flex";
+  hamster.classList.add("active");
+});
+
+closeChat.addEventListener("click", () => {
+  chatBox.style.display = "none";
+  hamster.classList.remove("active");
+});
+
+sendBtn.addEventListener("click", sendMessage);
+
+function sendMessage() {
+  const input = document.getElementById("userInput");
+  const message = input.value;
+
+  if (message.trim() !== "") {
+    chatBody.innerHTML += "<p><strong>Вы:</strong> " + message + "</p>";
+
+    setTimeout(() => {
+      chatBody.innerHTML += "<p><strong>HOMiGO:</strong> Я пока учусь отвечать 😭 </p>";
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }, 500);
+
+    input.value = "";
+  }
+}
+</script>
+</body>
+</html>
